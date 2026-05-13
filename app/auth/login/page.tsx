@@ -24,8 +24,6 @@ export default function LoginPage() {
       password,
     });
 
-    console.log("[v0] Login result:", { data, error });
-
     if (error) {
       setError(error.message);
       setLoading(false);

@@ -27,8 +27,6 @@ export default async function DashboardLayout({
 
   // If profile doesn't exist, create one with default role
   if (!profile) {
-    console.log("[v0] Profile not found for user:", user.id, "Error:", profileError);
-    
     // Try to create a profile for the user
     const { data: newProfile, error: insertError } = await supabase
       .from("profiles")
@@ -42,7 +40,6 @@ export default async function DashboardLayout({
       .single();
 
     if (insertError || !newProfile) {
-      console.log("[v0] Failed to create profile:", insertError);
       redirect("/auth/login");
     }
 
